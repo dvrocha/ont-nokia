@@ -4,6 +4,7 @@
 #Devel made by Leandro Rocha for the ISP FNC.
 #The need is to form a properly tool to provisioning the ONU's from Nokia in the right way.
  
+#Ver 0.6.1 - 02/03/2020 - Fix log variable and code.
 #Ver 0.6 - 28/02/2020 - Update almost everything in the script. Incremented new functions, factory reset options.
 #Ver 0.5 - 27/02/2020 - Add function and validation
 #Ver 0.4 - 19/02/2020 - Add log only for inputs.
@@ -15,6 +16,7 @@
 #wifi_password=$2
 username="usermaster"
 password="masteruser"
+history_dir="/var/log/ont-nokia/log.txt"
 #ppp_user=$3
 #ppp_password=$4
 #ppp_vlan=$5
@@ -208,7 +210,7 @@ EOF
 
 
 	 
-	#echo -e "$date_atual \n| PPP Name:$ppp_user - PPP Password: $ppp_password - PPP_VLAN: $ppp_vlan - Wifi Name: $wifi_name - Wifi Password: $wifi_password\n" >> /home/pi/Desktop/Historico/log.txt
+	echo -e "$date_atual \n| PPP Name:$ppp_user - PPP Password: $ppp_password - PPP_VLAN: $ppp_vlan - Wifi Name: $wifi_name - Wifi Password: $wifi_password\n" >> $history_dir
 	 
 	read -p "Programa executado sem erros." 
 

@@ -212,7 +212,7 @@ EOF
 	 
 	echo -e "$date_atual \n| PPP Name:$ppp_user - PPP Password: $ppp_password - PPP_VLAN: $ppp_vlan - Wifi Name: $wifi_name - Wifi Password: $wifi_password\n" >> $history_dir
 	 
-	read -p "Programa executado sem erros." 
+	echo "Programa executado sem erros." 
 
 }
 

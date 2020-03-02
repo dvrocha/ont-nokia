@@ -248,13 +248,15 @@ ont_validation () {
 	cmd=$(cat output_wlan.txt |  grep "SSID:'" | tr -d , | awk -F "'" '{print $2}')
 	[[ "$cmd" != "$wifi_name" ]] && output_validation=$(echo "\nWLAN Incorreta - $cmd") && error_var=($error_var + 1)
 
-if [[ $error_var > 0 ]]; then
-	echo "$output_validation"
-	#echo "Equipamento sera resetado."
-	#output_val_end="1"
-else
-	echo "Não foram encontrados erros nas configurações do equipamento."
-fi
+	if [[ $error_var > 0 ]]; then
+		echo "$output_validation"
+		#echo "Equipamento sera resetado."
+		#output_val_end="1"
+	else
+		echo "Não foram encontrados erros nas configurações do equipamento." 
+		read -p "Precione qualquer tecla para finalizar o programa." 
+		exit
+	fi
 
 }
  
